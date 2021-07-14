@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!--  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> -->
+ <head>
+  <title>Registration Form</title>
+</head>
+<style type="text/css">
+body{
+  margin: 0;padding: 0;
+  box-sizing: border-box;
+}
+.main{
+  width: 100vw;
+  height: 100vh;
+  /*background-color: pink;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  .reg{
+   /* border: 1px solid black;*/
+    /*padding: 5px 5px 5px 5px;*/
+    box-shadow: 0 10px 20px cornflowerblue;
+    padding: 10px;
+   /* background-color: black;
+    opacity: 0.6;*/
+    background-color:rgb(0,0,0,0.8);
+    color: white;
+  }
+  button{
+   /* box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 1.0);*/
+     background-color: cornflowerblue;
+      color: white;
+  }
+  button:hover{
+    color: blue;
+    background-color: white;
+  }
+  h2{
+    text-shadow: 2px 2px 8px white
+  }
+</style>
+<body >
+
+   <ul class="nav nav-pills">
+      <li ><a href="#signup" data-toggle="tab" class="tab1">Signup</a></li>
+      <li><a href="#signin" data-toggle="tab" class="tab2">Signin</a></li>
+      <li><a href="#admin" data-toggle="tab" class="tab3">Admin</a></li>
+    </ul>
+
+    <div class="main">
+      <div class="reg">
+    <div class="tab-content">
+  
+  <div class="tab tab-pane active" id="signup">
+  <h2><center>REGISTRATION FORM</center></h2>
+  <form action="/reg" method="POST">
+    <input type="text" name="nm" placeholder="Username" class="form-control" >
+    <br><br>
+    <input type="text" name="roll" placeholder="Rollno" class="form-control" >
+    <br><br>
+    <input type="password" name="pwd" placeholder="password" class="form-control" >
+    <br><br>
+    <button type="submit" >Submit</button>
+    <br><br>
+  </form>
+</div>
+
+<!-- -------------------login form ------------------------------------------------------------------------------------------>
+
+    <div class="tab tab-pane"  id="signin">
+  <h2><center>LOGIN</center></h2>
+  <form action="/log" method="POST">
+    <input type="text" name="logname" placeholder="Rollnumber" class="form-control" >
+    <br><br>
+    <input type="password" name="logpwd" placeholder="password" class="form-control" >
+    <br><br>
+    <button type="submit" >Submit</button>
+    <br><br>
+  </form>
+</div>
+
+<!-- --------------------------------------------login ends---------------------------------------- -->
+
+<div class="tab tab-pane"  id="admin">
+  <h2><center>Admin</center></h2>
+  <form action="" >
+    <input type="text" name="name" placeholder="Admin name" class="form-control" >
+    <br><br>
+    <input type="password" name="pass" placeholder="password" class="form-control" >
+    <br><br>
+    <button type="submit" >Submit</button>
+    <br><br>
+  </form>
+</div>
+</div>
+</div>
+</div>
+
+<div>
+  {% for doc in text_coll %}
+  <center>{{doc.roll}}</center>
+<h6>{{doc.data}}</h6>
+{% endfor %}
+</div>
+</body>
+</html>
